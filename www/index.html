@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+              <script src="assets/web/assets/jquery/jquery.min.js"></script>
+<style>
+
+.detailBox {
+    width:320px;
+    border:1px solid #bbb;
+    margin:50px;
+}
+.titleBox {
+    background-color:#fdfdfd;
+    padding:10px;
+}
+.titleBox label{
+  color:#444;
+  margin:0;
+  display:inline-block;
+}
+input{
+	color:black;
+}
+.commentBox {
+    padding:10px;
+    border-top:1px dotted #bbb;
+}
+.commentBox .form-group:first-child, .actionBox .form-group:first-child {
+    width:80%;
+}
+.commentBox .form-group:nth-child(2), .actionBox .form-group:nth-child(2) {
+    width:18%;
+}
+.actionBox .form-group * {
+    width:100%;
+}
+.taskDescription {
+    margin-top:10px 0;
+}
+.commentList {
+    padding:0;
+    list-style:none;
+    max-height:200px;
+    overflow:auto;
+}
+.commentList li {
+    margin:0;
+    margin-top:10px;
+}
+.commentList li > div {
+    display:table-cell;
+}
+.commenterImage {
+    width:30px;
+    margin-right:5px;
+    height:100%;
+    float:left;
+}
+.commenterImage img {
+    width:100%;
+    border-radius:50%;
+}
+.commentText p {
+    margin:0;
+}
+.sub-text {
+    color:#aaa;
+    font-family:verdana;
+    font-size:11px;
+}
+.actionBox {
+    border-top:1px dotted #bbb;
+    padding:10px;
+}
+#myframeheader{
+	background-color:#3b5998;
+	color:white;
+	border: 1px solid black;
+	height:45px;
+	
+	
+}
+#framebody{
+	width:400px;
+	height:500px;
+	padding:4px solid black;
+	
+}
+#framefooter{
+	background-color:#3b5998;
+	color:white;
+	border: 1px solid black;
+	height:45px;
+}a{
+	color:white;
+	
+	
+}
+</style>
+    <script>
+    $(document).ready(function() {
+           $("#gallery").hide();
+           $("#loginpage").hide();
+            window.localStorage.setItem("name", '');
+           var ret='';
+         
+         var ret = window.localStorage.getItem("name");
+     alert(ret);
+            if(ret==null||ret==''){
+                alert('one');
+                $("#loginpage").fadeIn();
+                
+                
+                //$("#gallery").fadeIn(500);
+            }
+            else{
+                                alert('two');
+
+                 $('#message').html('welcome '+ret).fadeOut(5000); 
+                $("#gallery").fadeIn(700);
+                 //$("#loginpage").fadeIn(500);
+                
+            }
+           
+    
+    });
+    </script>
+            <script type="text/javascript">
+ $(document).ready(function()
+ {
+     
+ var url="http://10.0.2.2:80/sakshi/getcount.php";
+var count =0;
+ $.getJSON(url,function(result){
+ console.log(result);
+ $.each(result, function(i, field){
+count = field;
+ });
+r="";
+name="";
+id="";
+likes=0;
+ for(i=0;i<count;i++){
+ 
+ var url1="http://10.0.2.2:80/sakshi/getimage.php?n="+i;
+ 
+ $.getJSON(url1,function(result){
+$.each(result, function(i, field){
+if(i=='url'){
+	r=field;
+}
+if(i=='name'){
+	name=field;
+}if(i=='id'){
+	id=field;
+}
+if(i=="likes"){
+	likes=field;
+}
+
+
+});
+ 
+
+    $("#frame").append(
+            $(
+			'<div id="framebody"><div id="myframeheader"> <h4> This picture is uploded by '+name+'</h4></div><div id="myframebody">'+
+            '<img alt="" height="350" width="400" src="http://10.0.2.2:80/sakshi/new/'+r+'"></div><div id="framefooter"><a id="'+r+'" class="likes" href="#">like <h5 class="abc"id="'+r+'">'+likes+'</h5> </a>'+
+			'<div id="'+r+'" ><input type="text" class="text" ><input type="button" class="comment" id="'+r+'" value="comment"></div>'+
+			'</div></div>'
+                    )	
+                          
+            );
+			
+	
+			 
+			for(j=0;j<1000000;j++){
+				a=i;
+				x=6*j;
+			}
+    }); 
+}
+
+		
+
+
+
+ });
+ 
+ });
+ 
+ </script>
+
+  <!-- Site made with Mobirise Website Builder v3.12.1, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v3.12.1, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="assets/images/logo-259x128.png" type="image/x-icon">
+  <meta name="description" content="">
+  
+  <link rel="stylesheet" href="assets/bootstrap-material-design-font/css/material.css">
+  <link rel="stylesheet" href="assets/tether/tether.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/animate.css/animate.min.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  
+  
+  
+</head>
+<body>
+<section id="menu-3">
+
+    <nav class="navbar navbar-dropdown bg-color transparent navbar-fixed-top">
+        <div class="container">
+
+            <div class="mbr-table">
+                <div class="mbr-table-cell">
+
+                    <div class="navbar-brand">
+                        <a href="#" class="navbar-logo"><img src="assets/images/logo-259x128.png" alt="Mobirise"></a>
+                        <a class="navbar-caption" href="#">HUB</a>
+                    </div>
+
+                </div>
+                <div class="mbr-table-cell">
+
+                    <button class="navbar-toggler pull-xs-right hidden-md-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
+                        <div class="hamburger-icon"></div>
+                    </button>
+
+                    <ul class="nav-dropdown collapse pull-xs-right nav navbar-nav navbar-toggleable-sm" id="exCollapsingNavbar"><li class="nav-item"><a class="nav-link link" href="index.html">Home</a></li><li class="nav-item"><a class="nav-link link" href="mygallary.html">My gallrry</a></li><li class="nav-item"><a class="nav-link link" href="page1.html">Uploads</a></li><li class="nav-item nav-btn"><a class="nav-link btn btn-white btn-white-outline" onclick="logout()" href="#">logout</a></li></ul>
+                    <button hidden="" class="navbar-toggler navbar-close" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
+                        <div class="close-icon"></div>
+                    </button>
+<script>
+    function logout(){
+        alert("logout clicked");
+        window.localStorage.removeItem("key");
+        
+    }
+ </script>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+</section>
+    
+<div id="loginpage">
+<section class="engine" id="loginbg"></section><section  class="mbr-section mbr-section-hero mbr-section-full mbr-after-navbar"  data-bg-video="https://www.youtube.com/watch?v=uNCr7NdOJgw">
+
+    <div class="mbr-overlay" style="opacity: 0.5; background-color: rgb(0, 0, 0);"></div>
+
+    <div class="mbr-table-cell">
+
+        <div class="container">
+            <div class="row">
+                <div class="mbr-section col-md-10 col-md-offset-2 text-xs-right">
+
+                    
+                    <p class="mbr-section-lead lead">Share images &nbsp;and get comments &nbsp;and likes on them and&nbsp;know what people &nbsp;really think about you.</p>
+                    
+                    <div class="col-xs-12 col-md-4">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="form1-8-phone">name</label>
+                                    <input type="text" id="name" class="form-control" name="phone" data-form-field="Phone" id="form1-8-phone">
+                                </div>
+                            </div> 
+                    <div class="mbr-section-btn" onclick="setname()" ><a class="btn btn-lg btn-success" href="#">ENTER THE HUB</a> </div>
+               <script>
+                   function setname(){
+                       if(name!=""){
+                           var name = document.getElementById("name").value.toString();
+                           window.localStorage.setItem("name", name);
+                                  $("#loginpage").hide();
+                                  alert(name);
+                                  $("#gallery").show();
+                       }
+                       else{
+                           alert(localStorage.getItem("name"));
+                       }
+                       
+                   }
+                </script>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+</section>
+</div>
+<div id="gallery">
+<section class="mbr-section mbr-section-hero mbr-section-full mbr-parallax-background" id="header1-4" style="background-image: url(assets/images/jumbotron.jpg);">
+
+    
+
+    <div class="mbr-table-cell"   >
+
+        <div class="container">
+            <div class="row">
+                <div class="mbr-section col-md-10 col-md-offset-1 text-xs-center">
+
+                    <div id='frame'>
+            
+        </div>
+    <script>
+ $(document.body).on('click', '.likes' ,function(e){
+var nooflikes=0;
+  e.preventDefault();
+var ID = $(this).attr("id");
+
+
+
+  $.ajax({
+    type:'GET',
+     url:'http://10.0.2.2:80/sakshi/likephoto.php?url='+ID,
+    success:function(data) {
+	nooflikes=data;
+	alert(nooflikes+"this is data");
+	
+	$(this).html('khgm');
+	
+    }
+ 
+});
+alert(nooflikes+"this is data");
+x=1+parseInt($(this).children('.abc').text());	
+$(this).children('.abc').text(x)
+});
+
+
+
+$(document.body).on('click','.comment',function(e){
+ID=$(this).attr("id");
+textcomment=$(this).parent().children(".text").val();
+	
+	
+	datastring="name="+ID+"&comment="+textcomment;
+	$.ajax({
+    type:'POST',
+	data:datastring,
+     url:'http://10.0.2.2:80/sakshi/coment.php',
+    success:function(data) {
+	nooflikes=data;
+	
+	
+	
+	
+    }
+ 
+});
+	
+	
+	
+	
+	$(this).parent().children(".text").val("comment done write anothe comment");
+});
+
+		</script>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+</div>
+
+   <script type="text/javascript" src="cordova.js"></script>
+
+  <script src="assets/web/assets/jquery/jquery.min.js"></script>
+  <script src="assets/tether/tether.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/smooth-scroll/smooth-scroll.js"></script>
+  <script src="assets/jquery-mb-ytplayer/jquery.mb.ytplayer.min.js"></script>
+  <script src="assets/viewport-checker/jquery.viewportchecker.js"></script>
+  <script src="assets/jarallax/jarallax.js"></script>
+  <script src="assets/dropdown/js/script.min.js"></script>
+  <script src="assets/touch-swipe/jquery.touch-swipe.min.js"></script>
+  <script src="assets/theme/js/script.js"></script>
+  
+  
+  <input name="animation" type="hidden">
+  
+  </body>
+</html>

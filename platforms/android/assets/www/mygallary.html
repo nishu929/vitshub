@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+       <style>
+
+.detailBox {
+    width:320px;
+    border:1px solid #bbb;
+    margin:50px;
+}
+.titleBox {
+    background-color:#fdfdfd;
+    padding:10px;
+}
+.titleBox label{
+  color:#444;
+  margin:0;
+  display:inline-block;
+}
+
+.commentBox {
+    padding:10px;
+    border-top:1px dotted #bbb;
+}
+.commentBox .form-group:first-child, .actionBox .form-group:first-child {
+    width:80%;
+}
+.commentBox .form-group:nth-child(2), .actionBox .form-group:nth-child(2) {
+    width:18%;
+}
+.actionBox .form-group * {
+    width:100%;
+}
+.taskDescription {
+    margin-top:10px 0;
+}
+.commentList {
+    padding:0;
+    list-style:none;
+    max-height:200px;
+    overflow:auto;
+}
+.commentList li {
+    margin:0;
+    margin-top:10px;
+}
+.commentList li > div {
+    display:table-cell;
+}
+.commenterImage {
+    width:30px;
+    margin-right:5px;
+    height:100%;
+    float:left;
+}
+.commenterImage img {
+    width:100%;
+    border-radius:50%;
+}
+.commentText p {
+    margin:0;
+}
+.sub-text {
+    color:#aaa;
+    font-family:verdana;
+    font-size:11px;
+}
+.actionBox {
+    border-top:1px dotted #bbb;
+    padding:10px;
+}
+#myframeheader{
+	background-color:#3b5998;
+	color:white;
+	border: 1px solid black;
+	height:45px;
+	
+	
+}
+#framebody{
+	width:400px;
+	height:500px;
+	padding:4px solid black;
+	
+}
+#framefooter{
+	background-color:#3b5998;
+	color:white;
+	border: 1px solid black;
+
+}
+</style>
+                  <script src="assets/web/assets/jquery/jquery.min.js"></script>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v3.12.1, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="assets/images/logo-259x128.png" type="image/x-icon">
+  <meta name="description" content="Web Creator Description">
+  <title>Web Creator Title</title>
+ <link rel="stylesheet" href="assets/bootstrap-material-design-font/css/material.css">
+  <link rel="stylesheet" href="assets/tether/tether.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/animate.css/animate.min.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  
+  
+   <script type="text/javascript">
+            nameofuser=window.localStorage.getItem("name").toString();
+ $(document).ready(function()
+ {
+     
+ var url="http://10.0.2.2:80/sakshi/getcountgalary.php?name="+nameofuser;
+var count =0;
+ $.getJSON(url,function(result){
+ console.log(result);
+ $.each(result, function(i, field){
+count = field;
+ });
+r="";
+name="";
+ for(i=0;i<count;i++){
+ 
+ var url1="http://10.0.2.2:80/sakshi/getimagegalary.php?n="+i+"&name="+nameofuser;
+ 
+ $.getJSON(url1,function(result){
+$.each(result, function(i, field){
+if(i=='url'){
+	r=field;
+}
+if(i=='name'){
+	name=field;
+}
+
+});
+ 
+
+    $("#frame").append(
+            $(
+            '<div id="framebody"><div id="myframeheader"> <h4> This picture is uploded by '+name+'</h4></div><div id="myframebody">'+
+            '<img alt="" height="350" width="400" src="http://10.0.2.2:80/sakshi/new/'+r+'"></div><div id="framefooter"></div></div>'+
+			''
+             
+                    )
+                          
+            );
+			
+			
+			
+			
+	
+			
+			
+			//comme;nt adding
+			
+var url="http://10.0.2.2:80/sakshi/getcountcoment.php?name="+r;
+var count =0;
+ $.getJSON(url,function(result){
+ console.log(result);
+ $.each(result, function(i, field){
+count = field;
+ });
+ 
+
+comment="";
+name="";
+ for(i=0;i<count;i++){
+ 
+ var url1="http://10.0.2.2:80/sakshi/getcoment.php?n="+i+"&name="+r;
+ 
+ $.getJSON(url1,function(result){
+$.each(result, function(i, field){
+if(i=='comments'){
+	comment=field;
+}
+if(i=='name'){
+	name=field;
+}
+
+});
+ $("#framefooter").append(
+            $('<p>'+comment+'</p>'
+            
+             
+                    )
+                          
+            );
+
+
+
+});
+
+
+}
+ });
+
+			//comment adding get over
+			 
+			
+    }); 
+}//for loop looping and adding images
+
+
+
+
+
+ });
+ 
+ });
+ </script>
+</head>
+<body>
+<section id="menu-6">
+
+    <nav class="navbar navbar-dropdown bg-color transparent navbar-fixed-top">
+        <div class="container">
+
+            <div class="mbr-table">
+                <div class="mbr-table-cell">
+
+                    <div class="navbar-brand">
+                        <a href="https://mobirise.com" class="navbar-logo"><img src="assets/images/logo-259x128.png" alt="Mobirise"></a>
+                        <a class="navbar-caption" href="https://mobirise.com">HUB</a>
+                    </div>
+
+                </div>
+                <div class="mbr-table-cell">
+
+                    <button class="navbar-toggler pull-xs-right hidden-md-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
+                        <div class="hamburger-icon"></div>
+                    </button>
+
+                    <ul class="nav-dropdown collapse pull-xs-right nav navbar-nav navbar-toggleable-sm" id="exCollapsingNavbar"><li class="nav-item"><a class="nav-link link" href="index.html">Home</a></li><li class="nav-item"><a class="nav-link link" href="mygallary.html">My gallrry</a></li><li class="nav-item"><a class="nav-link link" href="page1.html">Uploads</a></li><li class="nav-item nav-btn"><a class="nav-link btn btn-white btn-white-outline" href="index.html">logout</a></li></ul>
+                    <button hidden="" class="navbar-toggler navbar-close" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
+                        <div class="close-icon"></div>
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+</section>
+
+
+<section class="mbr-section mbr-section-hero mbr-section-full mbr-parallax-background" id="header1-4" style="background-image: url(assets/images/jumbotron.jpg);">
+
+    
+
+    <div class="mbr-table-cell">
+
+        <div class="container">
+            <div class="row">
+                <div class="mbr-section col-md-10 col-md-offset-1 text-xs-center">
+
+                    <div id='frame'>
+            
+        </div>
+
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+        
+  <script src="assets/web/assets/jquery/jquery.min.js"></script>
+  <script src="assets/tether/tether.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/smooth-scroll/smooth-scroll.js"></script>
+  <script src="assets/dropdown/js/script.min.js"></script>
+  <script src="assets/touch-swipe/jquery.touch-swipe.min.js"></script>
+  <script src="assets/viewport-checker/jquery.viewportchecker.js"></script>
+  <script src="assets/theme/js/script.js"></script>
+
+  </body>
+</html>
